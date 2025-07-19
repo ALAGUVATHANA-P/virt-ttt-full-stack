@@ -1,0 +1,27 @@
+
+<h2>🏠 Maintenance Records</h2>
+
+<div *ngIf="isLoading">🔄 Loading maintenance data...</div>
+
+<div *ngIf="!isLoading && maintenanceData.length === 0">
+  ❌ No maintenance records found.
+</div>
+
+<div *ngIf="!isLoading && maintenanceData.length > 0">
+  <table border="1" cellpadding="10" cellspacing="0">
+    <thead>
+      <tr>
+        <th>📅 Month</th>
+        <th>💰 Amount (₹)</th>
+        <th>🧾 Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let m of maintenanceData">
+        <td>{{ m.month }}</td>
+        <td>{{ m.amount }}</td>
+        <td>{{ m.status }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
